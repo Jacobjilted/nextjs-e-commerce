@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useCart } from "@/contexts/CartContext";
 import styles from "@/pages/Checkout.module.css";
+import { sendEmail } from "../../utils/email-service"; // Import the email service
 
 const CheckoutPage: React.FC = () => {
   const { cart } = useCart();
@@ -11,9 +12,43 @@ const CheckoutPage: React.FC = () => {
     document.body.style.margin = "0";
   }, []);
 
-  const handleFormSubmit = (event: React.FormEvent) => {
+  const handleFormSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
-    // Handle form submission logic here
+
+    // Collect form data
+    const form = event.target as HTMLFormElement;
+    const formData = new FormData(form);
+    const formValues = Object.fromEntries(formData.entries());
+
+    // Create a string with the cart details
+    const cartDetails = cart
+      .map(
+        (item) =>
+          `Product: ${item.name}, Quantity: ${item.quantity}, Price: $${item.price}`
+      )
+      .join("\n");
+
+    // Prepare the data to send via EmailJS
+    const emailData = {
+      name: formValues.name as string,
+      email: formValues.email as string,
+      address: formValues.address as string,
+      address2: formValues.address2 as string,
+      zip: formValues.zip as string,
+      phone: formValues.phone as string,
+      summary: formValues.summary as string,
+      cartDetails: cartDetails,
+      totalPrice: getTotalPrice(),
+    };
+    console.log(emailData);
+    try {
+      const response = await sendEmail(emailData);
+      console.log("Email successfully sent!", response.text);
+      // Optionally, show a success message to the user
+    } catch (error) {
+      console.error("Failed to send email.", error);
+      // Optionally, show an error message to the user
+    }
   };
 
   // Calculate the total price of all items in the cart
@@ -61,7 +96,7 @@ const CheckoutPage: React.FC = () => {
           </div>
           <div className={styles.formGroup}>
             <label htmlFor="summary">Other Notes:</label>
-            <textarea cols={80} rows={5}></textarea>
+            <textarea id="summary" name="summary" cols={80} rows={5}></textarea>
           </div>
           <button type="submit" className={styles.submitButton}>
             Submit Order
@@ -84,8 +119,7 @@ const CheckoutPage: React.FC = () => {
                   <p>{item.description}</p>
                   <p className={styles.qtycheckout}>
                     Quantity: {item.quantity}
-                  </p>{" "}
-                  {/* Display the quantity here */}
+                  </p>
                 </div>
               </li>
             ))}
