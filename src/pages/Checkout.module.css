@@ -1,0 +1,97 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+.formContainer {
+  width: 56%;
+  margin-right: 95px;
+}
+
+.cartItemsContainer {
+  width: 34%;
+}
+
+.formGroup {
+  margin-bottom: 15px;
+}
+
+.formGroup label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.formGroup input,
+.formGroup textarea {
+  width: 100%;
+  padding: 8px;
+  box-sizing: border-box;
+}
+
+.submitButton {
+  margin-top: 20px;
+  background: #99744c;
+  color: #fff;
+  padding: 14px 25px;
+  border: 1px solid #99744c;
+}
+.submitButton:hover {
+  cursor: pointer;
+}
+
+.cartItems {
+  border: 1px solid #ddd;
+  padding: 10px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  background-color: #ededed;
+}
+
+.cartItems ul {
+  list-style: none;
+  padding: 0;
+}
+
+.cartItems li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #dddddd;
+}
+
+.cartItems img {
+  margin-right: 10px;
+  max-width: 100px;
+  max-height: 100px;
+}
+
+.cartItems h3 {
+  margin: 0;
+}
+
+.cartItems p {
+  margin: 5px 0;
+}
+.totalPrice {
+  font-weight: bold;
+  margin-top: 10px;
+  text-align: right;
+}
+.qtycheckout {
+  text-align: right;
+  font-weight: 700;
+}
+@media (max-width: 768px) {
+  .container {
+    display: block;
+  }
+
+  .formContainer {
+    width: 100%;
+    margin-right: 0px;
+  }
+
+  .cartItemsContainer {
+    width: 100%;
+  }
+}

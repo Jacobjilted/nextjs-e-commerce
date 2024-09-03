@@ -1,0 +1,44 @@
+.container {
+  padding: 20px;
+}
+
+.cartList {
+  list-style-type: none;
+  padding: 0;
+  background-color: #ededed;
+}
+
+.cartItem {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #ddd;
+  padding: 10px 0;
+}
+
+.cartItem img {
+  margin-right: 20px;
+  max-width: 100px;
+}
+
+.cartItem div {
+  flex: 1;
+}
+
+.cartItem button {
+  background-color: #ff4d4d;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.cartItem button:hover {
+  background-color: #e03e3e;
+}
+.checkoutButton {
+  background: #99744c;
+  color: #fff;
+  padding: 14px 25px;
+  border: 1px solid #99744c;
+  cursor: pointer;
+}

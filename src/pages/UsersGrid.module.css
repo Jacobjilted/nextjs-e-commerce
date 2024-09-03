@@ -1,0 +1,220 @@
+/* UsersGrid.module.css */
+
+.gridContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 16px;
+  padding: 16px;
+}
+.gridContainers {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 16px;
+  text-align: center;
+  padding: 16px;
+}
+
+.gridItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 16px;
+  background-color: #f9f9f9;
+}
+
+.avatar {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 8px;
+}
+
+.name {
+  font-size: 1rem;
+  color: #333;
+  text-align: center;
+}
+.product {
+  width: 200px;
+  height: 200px;
+  margin-bottom: 8px;
+}
+.cart {
+  background-color: #716f6f;
+  color: #fff;
+  padding: 10px;
+  border: 0px;
+}
+.cart a {
+  color: #fff;
+}
+.breadcrumb {
+  position: relative;
+  background-image: url("../../public/slide4.png"); /* Replace with the path to your background image */
+  background-size: cover; /* Ensure the image covers the entire element */
+  background-position: center; /* Center the background image */
+  padding: 100px;
+  width: 100%; /* Full width */
+  z-index: -1 !important;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Black overlay with 50% opacity */
+  z-index: 1; /* Ensure the overlay is on top of the background image */
+}
+
+/* Additional styles for content inside breadcrumb */
+.breadcrumbContent {
+  position: relative; /* Make sure content is above the overlay */
+  /* Ensure content is above the overlay */
+  color: white; /* Adjust text color for readability */
+  padding: 1rem; /* Adjust padding as needed */
+  justify-content: center;
+  align-items: center;
+  z-index: 999 !important;
+}
+.breadcrumbContent h1 {
+  font-size: 50px;
+  font-weight: 700;
+  color: #fff;
+  text-align: center;
+  z-index: 999;
+}
+.breadcrumbContent p {
+  color: #fff;
+  font-size: 18px;
+  text-align: center;
+  z-index: 999;
+}
+.price {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+/* Css for single product page */
+/* Container for overall page styling */
+.container {
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Product container for flex layout */
+.productContainer {
+  display: flex;
+  flex-direction: column; /* Stack vertically on small screens */
+  gap: 20px;
+}
+
+/* Flex container for image and text side by side */
+.productContent {
+  display: flex;
+  flex-direction: row;
+  gap: 20px; /* Space between image and text */
+}
+
+/* Styling for image container */
+.imageContainer {
+  flex: 1;
+}
+
+/* Ensure the image scales properly */
+.productImage {
+  width: 100%;
+  height: auto;
+  max-width: 480px; /* Adjust width as needed */
+  border-radius: 8px; /* Optional: rounded corners */
+}
+
+/* Styling for text container */
+.textContainer {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Product name styling */
+.productName {
+  font-size: 2rem;
+  margin: 0;
+}
+
+/* Product description styling */
+.productDescription {
+  font-size: 1rem;
+  margin-top: 10px;
+}
+/* Styling for tabs */
+.tabs {
+  display: flex;
+  border-bottom: 1px solid #ddd;
+  margin-top: 40px;
+}
+.desc {
+  margin-bottom: 20px;
+}
+/* Individual tab styling */
+.tab {
+  padding: 10px 20px;
+  cursor: pointer;
+  background: #333333;
+  color: #fff;
+  border: none;
+  border-bottom: 2px solid transparent;
+  transition: background 0.3s, border-color 0.3s;
+}
+
+/* Active tab styling */
+.activeTab {
+  background: #fff;
+  padding: 0px 10px;
+  border-bottom: 2px solid #333333;
+}
+
+/* Styling for tab content */
+.tabContent {
+  padding: 20px;
+}
+
+/* Scoped form styling */
+.formContainer form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Scoped textarea styling */
+.formContainer textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+/* Scoped button styling */
+.formContainer button {
+  padding: 10px 20px;
+  border: none;
+  background: #99744c;
+  color: #fff;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.formContainer button:hover {
+  background: #333333;
+}
+@media (max-width: 768px) {
+  .productContent {
+    flex-direction: column;
+  }
+}
